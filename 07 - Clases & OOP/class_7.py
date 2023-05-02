@@ -4,20 +4,20 @@ class operaciones_lista:
     
     def es_primo(self):
         for numero in self.lista:
-            if self._es_primo(numero):
+            if self.__es_primo(numero):
                 print(numero,'es un numero primo')
             else:
                 print(numero,'no es un numero primo')
     
     def convertir_temperatura(self, origen, destino):
         for temperatura in self.lista:
-            print(temperatura, 'grados', origen, 'en grados', destino, '=', self._convertir_temperatura(temperatura,origen,destino) )
+            print(temperatura, 'grados', origen, 'en grados', destino, '=', self.__convertir_temperatura(temperatura,origen,destino) )
     
     def factorial(self):
         for numero in self.lista:
-            print(numero, 'factorial es:', self._factorial(numero))
+            print(numero, 'factorial es:', self.__factorial(numero))
 
-    def _es_primo (self, numero):
+    def __es_primo (self, numero):
         
         primo = True
         if numero > 1 :
@@ -69,7 +69,7 @@ class operaciones_lista:
                 moda = num
         return moda, self.lista.count(moda)
     
-    def _convertir_temperatura(self, temperatura,grados_origen, grados_destino):
+    def __convertir_temperatura(self, temperatura,grados_origen, grados_destino):
         '''
         Ingrese los siguientes valores en los parámetros para 
         indicar el tipo de sistema de medición de temperatura:
@@ -118,7 +118,7 @@ class operaciones_lista:
             print('Verifique valor ingresado en grados de origen')
         return conversion
     
-    def _factorial (self,numero):
+    def __factorial (self,numero):
         '''
         Devuelve el factorial
         '''
@@ -129,5 +129,5 @@ class operaciones_lista:
             return 'Verique que el valor ingresado es positivo'
         
         if numero > 2:
-            numero = numero * self._factorial(numero - 1)
+            numero = numero * self.__factorial(numero - 1)
         return numero
