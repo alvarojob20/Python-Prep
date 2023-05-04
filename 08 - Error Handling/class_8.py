@@ -2,16 +2,18 @@ class operaciones_lista:
     def __init__(self, lista):
         if (type(lista) != list):
             self.lista = []
-            raise ValueError('Se ha creado una lista vacía. Se esperaba una lista de núemeros enteros')  
+            raise ValueError('Se ha ingresado un parametro incorrecto. Se esperaba una lista de núemeros enteros')  
         else:
             self.lista = lista
     
     def es_primo(self):
+        lista_primos = []
         for numero in self.lista:
             if self.__es_primo(numero):
-                print(numero,'es un numero primo')
+                lista_primos.append(True)
             else:
-                print(numero,'no es un numero primo')
+                lista_primos.append(False)
+        return lista_primos
     
     def convertir_temperatura(self, origen, destino):
         '''
@@ -23,18 +25,22 @@ class operaciones_lista:
         Kelvin: 'K'
         '''
         valores_esperados = ['C','F','K']
-
+        lista_temperaturas = []
+        
         if origen not in valores_esperados:
             raise ValueError("Verifique valor ingresado en grados de origen. Valores esperados: 'C' 'F' 'K'")
         elif destino not in valores_esperados:
             raise ValueError("Verifique valor ingresado en grados de destino. Valores esperados: 'C' 'F' 'K'")
         else:
             for temperatura in self.lista:
-                print(temperatura, 'grados', origen, 'en grados', destino, '=', self.__convertir_temperatura(temperatura,origen,destino) )
+                lista_temperaturas.append(self.__convertir_temperatura(temperatura,origen,destino))
+        return lista_temperaturas
     
     def factorial(self):
+        lista_factoriales = []
         for numero in self.lista:
-            print(numero, 'factorial es:', self.__factorial(numero))
+            lista_factoriales.append(self.__factorial(numero))
+        return lista_factoriales
 
     def __es_primo (self, numero):
         
